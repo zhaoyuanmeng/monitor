@@ -9,6 +9,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "lib": [ "dom", "es5", "es2015.promise" ,"es2015", "es2017"],
+    "lib": ["dom", "es5", "es2015.promise", "es2015", "es2017"]
   }
 }

@@ -1,9 +1,9 @@
-import {initOption} from '../types/base'
+import type { initOption } from '../types/base'
 
-const config:initOption = {
-  url: "",
-  appID: "",
-  userID: "",
+const config: initOption = {
+  url: '',
+  appID: '',
+  userID: '',
   vue: {
     Vue: null,
     router: null,
@@ -12,14 +12,13 @@ const config:initOption = {
     React: null,
     router: null,
   },
-};
+}
 
-export function setConfig(options: initOption):initOption {
-  let k : keyof initOption
+export function setConfig(options: initOption): any {
+  let k: keyof initOption
   for (k in config) {
-    if (options[k]) {
-      config[k]  = options[k] as never
-    }
+    if (options[k])
+      config[k] = options[k] as never
   }
   return config
 }
