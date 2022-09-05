@@ -44,7 +44,7 @@
     "build-ts": "tsup",
     "watch": "npm run build-tsup -- --watch src",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint:fix": "eslint . --fix .",
     "release": "bumpp --commit --push --tag && npm publish",
     "start": "esno src/index.ts",
     "test": "vitest",
