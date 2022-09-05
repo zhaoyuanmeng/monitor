@@ -52,8 +52,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "tsup": "^6.2.3",
-    "ycanvas": "1.1.0-beta.3"
+    "tsup": "^6.2.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.25.2",
