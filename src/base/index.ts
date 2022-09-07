@@ -2,6 +2,7 @@
 
 import type { initOption } from '../types/base'
 import { setConfig } from './config'
+import { error } from './../error/index'
 export class Ymonitor {
   public errorInfo = {}
   public performanceInfo = {}
@@ -11,7 +12,7 @@ export class Ymonitor {
     setConfig(option)
 
     // 收集错误信息
-
+    error()
     // 收集页面指标信息
   }
 

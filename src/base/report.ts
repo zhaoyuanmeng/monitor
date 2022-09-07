@@ -1,4 +1,4 @@
-import { addCache, type cacheType, getCache } from './cache'
+import { addCache, getCache } from './cache'
 type Timeout = /* unresolved */ any
 type ReportData = any[]
 /*
@@ -15,10 +15,10 @@ export function report(data: ReportData): boolean {
 /*
  *@Author: 赵元达
  *@Date: 2022-09-07 10:48:40
- *@parms:
+ *@parms: TODO:更新data的类型（好好想想）
  *@Description: 懒上报
  */
-export function lazyReportCache(data: cacheType<any>, timeout = 3000) {
+export function lazyReportCache(data: any, timeout = 3000) {
   let timer: Timeout
 
   // 添加到缓存种
