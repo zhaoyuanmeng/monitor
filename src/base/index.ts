@@ -9,10 +9,10 @@ export class Ymonitor {
 
   public init(option: initOption) {
     // 对option进行处理
-    setConfig(option)
+    const config = setConfig(option)
 
     // 收集错误信息
-    error()
+    error(config)
     // 收集页面指标信息
   }
 

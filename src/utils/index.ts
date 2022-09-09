@@ -95,8 +95,7 @@ export function deepClone(target: any) {
     else {
       // 否则是普通对象，直接for in循环，递归赋值对象的所有值
       result = {}
-      for (const i in target)
-        result[i] = deepClone(target[i])
+      for (const i in target) result[i] = deepClone(target[i])
     }
     // 如果不是对象的话，就是基本数据类型，那么直接赋值
   }
@@ -115,4 +114,14 @@ export function deepClone(target: any) {
  */
 export function getPageUrl(): string {
   return window.location.href
+}
+
+/*
+ *@Author: 赵元达
+ *@Date: 2022-09-09 10:51:39
+ *@parms:
+ *@Description: 随机生成一个id
+ */
+export function generateUniqueId(): string {
+  return `v2-${Date.now()}-${Math.floor(Math.random() * (9e12 - 1)) + 1e12}`
 }

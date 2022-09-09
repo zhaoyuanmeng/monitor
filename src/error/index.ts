@@ -1,4 +1,5 @@
 import { lazyReportCache } from '../base/report'
+import type { initOption } from '../types/base'
 import { getPageUrl } from '../utils/index'
 /*
  *@Author: 赵元达
@@ -6,7 +7,7 @@ import { getPageUrl } from '../utils/index'
  *@parms:
  *@Description: 处理收集错误信息
  */
-export function error() {
+export function error(config: initOption) {
   // 拿到原来的api
   const oldConsoleError = window.console.error
 
@@ -16,7 +17,7 @@ export function error() {
     oldConsoleError.apply(this, arg)
 
     // 新加上自己的补充 也就是收集和上传
-    lazyReportCache({
+    lazyReportCache(config, {
       type: 'error', // 这个可以做成枚举类型
       subType: 'console-error',
       // performance是全局对象可以直接引用在v8引擎下
