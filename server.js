@@ -1,8 +1,7 @@
-import express from 'express'
-import cors from 'cors'
-import bodyParser from 'body-parser'
-
+const express = require('express')
+const cors = require('cors')
 const app = express()
+const bodyParser = require('body-parser')
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -14,6 +13,6 @@ app.post('/reportData', (req, res) => {
   res.status(200).send('')
 })
 
-app.listen(8080, () => {
-  console.log('server listen on port 8080...')
+app.listen(8081, () => {
+  console.log('server listen on port 8081...')
 })
