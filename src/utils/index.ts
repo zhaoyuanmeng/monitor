@@ -1,4 +1,5 @@
 // 工具函数
+type FN = (a: any) => any
 
 /*
  *@Author: 赵元达
@@ -124,4 +125,14 @@ export function getPageUrl(): string {
  */
 export function generateUniqueId(): string {
   return `v2-${Date.now()}-${Math.floor(Math.random() * (9e12 - 1)) + 1e12}`
+}
+
+// 当一条会话历史记录被执行的时候将会触发页面显示 (pageshow) 事件。
+// (这包括了后退 / 前进按钮操作，同时也会在 onload 事件触发后初始化页面时触发)
+export function onBFCacheRestore(callback: FN) {
+  window.addEventListener('pageshow', (event) => {
+    // persisted表示网页是否来自于缓存
+    if (event.persisted)
+      callback(event)
+  }, true)
 }

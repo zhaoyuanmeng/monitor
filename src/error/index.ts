@@ -1,6 +1,6 @@
 import { lazyReportCache } from '../base/report'
 import type { initOption } from '../types/base'
-import { getPageUrl } from '../utils/index'
+import { getPageUrl, onBFCacheRestore } from '../utils/index'
 /*
  *@Author: 赵元达
  *@Date: 2022-09-06 13:57:16
@@ -26,4 +26,23 @@ export function error(config: initOption) {
       pageURL: getPageUrl(),
     })
   }
+
+  // 监听promise的错误
+  window.addEventListener('unhandledrejection', (e) => {
+    lazyReportCache(config, {
+      reason: e.reason?.stack,
+      subType: 'promise',
+      type: 'error',
+      startTime: e.timeStamp,
+      pageURL: getPageUrl(),
+    })
+  })
+
+  // TODO 捕获上层框架里面的错误 比如vue react
+
+  // 保证缓存的时候也会执行
+  onBFCacheRestore(() => {
+    error(config)
+  })
+  //
 }

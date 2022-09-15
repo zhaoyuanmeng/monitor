@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.text())
 
 app.post('/reportData', (req: any, res: any) => {
-  console.log(req.body.length)
+  console.log(req.body)
   res.status(200).send('')
 })
 
