@@ -1,6 +1,7 @@
 // 采用类的方式书写
 
 import type { initOption } from '../types/base'
+import { behaviorHandle } from '../behavior'
 import { setConfig } from './config'
 import { error } from './../error/index'
 export class Ymonitor {
@@ -13,6 +14,9 @@ export class Ymonitor {
 
     // 收集错误信息
     error(config)
+
+    // 收集行为
+    behaviorHandle(config)
     // 收集页面指标信息
   }
 
