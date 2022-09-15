@@ -36,3 +36,34 @@ export function lazyHandle(
     })
   }
 }
+
+/**
+ * @author Zhao YuanDa
+ * @parms:
+ * @description: //页面销毁前的处理
+ * @date 2022-09-15 20:26
+ */
+export function onBeforeunload(callback: any) {
+  window.addEventListener('beforeunload', callback, true)
+}
+/**
+ * @author Zhao YuanDa
+ * @parms:
+ * @description: //就是保证加载后执行callback函数
+ * @date 2022-09-15 20:30
+ */
+export function executeAfterLoad(callback: any) {
+  // document.readyState  loading（加载中） interactive（文档已被解析，但是诸如图像，样式表和框架之类的子资源仍在加载）
+  // complete（文档和所有子资源已完成加载。状态表示 load 事件即将被触发）
+  if (document.readyState === 'complete') {
+    callback()
+  }
+  else {
+    const onLoad = () => {
+      callback()
+      window.removeEventListener('load', onLoad, true)
+    }
+
+    window.addEventListener('load', onLoad, true)
+  }
+}

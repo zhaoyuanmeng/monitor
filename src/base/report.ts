@@ -34,11 +34,7 @@ const sendBeacon = isSupportSendBeacon()
  *@parms: isImmediate：是否立即执行
  *@Description: 上报入口函数
  */
-export function report(
-  config: initOption,
-  data: ReportData,
-  isImmediate = false,
-) {
+export function report(config: initOption, data: any, isImmediate = false) {
   if (!config.url) {
     log('请设置上传url的地址!!!')
     return
