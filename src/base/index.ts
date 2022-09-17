@@ -2,6 +2,7 @@
 
 import type { initOption } from '../types/base'
 import { behaviorHandle } from '../behavior'
+import { performance } from '../performance'
 import { setConfig } from './config'
 import { error } from './../error/index'
 export class Ymonitor {
@@ -18,6 +19,7 @@ export class Ymonitor {
     // 收集行为
     behaviorHandle(config)
     // 收集页面指标信息
+    performance(config)
   }
 
   // TODO 后续可以添加一些操作

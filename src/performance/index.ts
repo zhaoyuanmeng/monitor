@@ -5,4 +5,9 @@
  *@Description: 收集页面指标信息
  */
 
-export function performance() {}
+import { xhr } from './xhr'
+import { fetch } from './fetch'
+export function performance(config: any) {
+  fetch(config)
+  xhr(config)
+}

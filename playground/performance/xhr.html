@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+    <script src="../../dist/index.global.js"></script>
+    <script>
+        let monitor = new _.Ymonitor()
+        monitor.init({
+            url: 'http://localhost:8080/reportData'
+        })
+         window.addEventListener('click', () => {
+            // navigator.sendBeacon('http://localhost:8080/reportData', JSON.stringify(reportData))
+            const xhr = new XMLHttpRequest()
+            xhr.open('post', 'http://localhost:8080/reportData')
+            xhr.send(JSON.stringify({a:'test'}))
+        }, true)
+    </script>
+</head>
+<body>
+  <button>test</button>
+</body>
+</html>
