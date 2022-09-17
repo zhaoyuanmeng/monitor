@@ -1,6 +1,6 @@
-const originalProto = XMLHttpRequest.prototype
-const originalOpen = originalProto.open
-const originalSend = originalProto.send
+export const originalProto = XMLHttpRequest.prototype
+export const originalOpen = originalProto.open
+export const originalSend = originalProto.send
 
 /*
  *@Author: 赵元达
